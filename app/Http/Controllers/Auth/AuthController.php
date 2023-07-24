@@ -84,7 +84,7 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'password' => $request->password,
             ]);
-
+            $user->assignRole('subscriber');
             event(new Registered($user));
 
             // commit database
